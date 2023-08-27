@@ -359,7 +359,7 @@ header{
             thumb.style.left = `${thumbPosition}%`;
         }
 
-document.addEventListener('mouseup', () => {
+thumb.addEventListener('mouseup', () => {
     if (isDragging) {
         isDragging = false;
         positionThumb(0); // Esto vuelve el slider-thumb a la posición inicial (izquierda 0)

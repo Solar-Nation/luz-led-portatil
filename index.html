@@ -407,9 +407,14 @@ header{
             <img src="solar3.jpg" style="width: 25%;">
             <img src="solar4.jpg" style="width: 25%;">
     </section>
-<div class="notification">
-        <div class="notification">Juan Carlos de Toledo</div>
-    </div>
+ <div class="notification">
+        <div class="nombre-ciudad">Miriam de Zaragoza</div>
+        <div class="producto-notificacion">
+            <img src="portatil.png" style="width: 50px; border-radius: 10px;">
+            <div class="notificacion-text">
+                <p style="margin: 0; color: white;"> Foco Solar Portátil</p>
+            </div>
+        </div>
     </div>
     <footer>
         <p>Derechos de autor &copy; Año - Nombre de la Empresa</p>
@@ -500,16 +505,26 @@ function updateSlider(clientX) {
 
 // NOTIFICACIONES
 
-   const names = ["Miriam de Zaragoza", "Julio de Barcelona", "Gonzalo de Sevilla", "David de Coruña"];
+   const namesAndCities = [
+            { name: "Juan Carlos", city: "Toledo" },
+            { name: "Miriam", city: "Zaragoza" },
+            { name: "Julio", city: "Barcelona" },
+            { name: "Gonzalo", city: "Sevilla" },
+            { name: "David", city: "Coruña" }
+        ];
         let currentIndex = 0;
 
         function showNextNotification() {
-            if (currentIndex >= names.length) {
+            if (currentIndex >= namesAndCities.length) {
                 currentIndex = 0;
             }
 
             const notification = document.createElement("div");
             notification.className = "notification";
+
+            const nombreCiudad = document.createElement("div");
+            nombreCiudad.className = "nombre-ciudad";
+            nombreCiudad.textContent = `${namesAndCities[currentIndex].name} de ${namesAndCities[currentIndex].city}`;
 
             const productoNotificacion = document.createElement("div");
             productoNotificacion.className = "producto-notificacion";
@@ -530,6 +545,7 @@ function updateSlider(clientX) {
             notificacionText.appendChild(p);
             productoNotificacion.appendChild(img);
             productoNotificacion.appendChild(notificacionText);
+            notification.appendChild(nombreCiudad);
             notification.appendChild(productoNotificacion);
 
             document.body.appendChild(notification);
@@ -538,7 +554,7 @@ function updateSlider(clientX) {
                 document.body.removeChild(notification);
                 currentIndex++;
                 showNextNotification();
-            }, 30000); // 30 segundos
+            }, 20000); // 20 segundos
         }
 
         showNextNotification();

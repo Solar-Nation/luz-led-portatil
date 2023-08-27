@@ -395,7 +395,12 @@ header{
             <img src="solar4.jpg" style="width: 25%;">
     </section>
 <div class="notification">
-        Ana de Madrid acaba de comprar.
+       <p id="purchase"></p>
+        <div class="producto-notificacion">
+        <img src="portatil png" style="width: 30px;">
+        <p style="width: 30px; margen: 0"> Foco Solar Portátil</p>
+        <p style="width: 30px; margen: 0"> TOP VENTAS</p>
+    </div>
     </div>
     <footer>
         <p>Derechos de autor &copy; Año - Nombre de la Empresa</p>
@@ -486,23 +491,22 @@ function updateSlider(clientX) {
 
 // NOTIFICACIONES
 
- const names = ["Miriam de Zaragoza", "Julio de Barcelona", "Gonzalo de Sevilla", "David de Coruña"];
-        let currentIndex = 1;
+  const names = ["Juan Carlos de Toledo", "Miriam de Zaragoza", "Julio de Barcelona", "Gonzalo de Sevilla", "David de Coruña"];
+        let currentIndex = 0;
+        const purchaseParagraph = document.getElementById("purchase");
 
         function showNextNotification() {
             if (currentIndex >= names.length) {
                 currentIndex = 0;
             }
-            const notification = document.createElement("div");
-            notification.className = "notification";
-            notification.textContent = names[currentIndex];
-            document.body.appendChild(notification);
+            purchaseParagraph.textContent = names[currentIndex];
+            const notification = document.querySelector(".notification");
+            notification.style.animation = "slideIn 0.5s forwards, slideOut 0.5s 5s forwards";
 
             setTimeout(() => {
-                document.body.removeChild(notification);
                 currentIndex++;
                 showNextNotification();
-            }, 30000); // 30 segundos
+            }, 5300); // 5 segundos + 300ms (tiempo de animación)
         }
 
         showNextNotification();

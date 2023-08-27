@@ -259,4 +259,19 @@ header{
             const thumbPosition = position * 100;
             thumb.style.left = `${thumbPosition}%`;
         }
+
+// REDIRECCIONAR
+
+function updateSlider(clientX) {
+    const rect = slider.getBoundingClientRect();
+    const position = (clientX - rect.left) / rect.width;
+    positionThumb(position);
+
+    // Verificar si el slider-thumb ha alcanzado la posición deseada para la redirección
+    const desiredPosition = 80.7209; // El valor en porcentaje en el que deseas que ocurra la redirección
+    if (position >= desiredPosition / 100) {
+        window.location.href = 'https://solar-nation.github.io/checkout/';
+    }
+}
+
 </script>

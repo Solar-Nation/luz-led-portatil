@@ -61,3 +61,17 @@
     </footer>
 </body>
 </html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.querySelector('.menu-icon');
+    const menuList = document.querySelector('.menu-list');
+
+    menuIcon.addEventListener('click', function() {
+        if (menuList.style.display === 'none' || menuList.style.display === '') {
+            menuList.style.display = 'block';
+        } else {
+            menuList.style.display = 'none';
+        }
+    });
+});
+</script>

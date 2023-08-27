@@ -174,9 +174,12 @@ header{
            <p>Descubre el poder de la energía solar con nuestro Reflector LED portátil, el aliado perfecto para iluminar tus espacios exteriores. 
                Ya sea en una actividad al aire libre, en tu jardín o en una obra en construcción, esta lámpara de construcción recargable es tu solución brillante.</p>
 
-           <button class="toggle-button">
-                <div class="toggle-inner"></div>
-            </button>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slider-thumb"></div>
+                </div>
+            </div>
+
        </div>
     </div>
 
@@ -216,10 +219,34 @@ header{
 
 // BOTON DESLIZABLE
 
-  const toggleButton = document.querySelector('.toggle-button');
+  const slider = document.querySelector('.slider');
+        const thumb = document.querySelector('.slider-thumb');
+        let isDragging = false;
 
-        toggleButton.addEventListener('click', function() {
-            toggleButton.classList.toggle('on');
-            toggleButton.classList.toggle('off');
+        thumb.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            updateSlider(e.clientX);
         });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                updateSlider(e.clientX);
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        function updateSlider(clientX) {
+            const rect = slider.getBoundingClientRect();
+            const position = (clientX - rect.left) / rect.width;
+            positionThumb(position);
+        }
+
+        function positionThumb(position) {
+            position = Math.max(0, Math.min(1, position));
+            const thumbPosition = position * 100;
+            thumb.style.left = `${thumbPosition}%`;
+        }
 </script>

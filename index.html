@@ -150,21 +150,23 @@ header{
             left: 0.243136%;
         }
 
-.arrow-icon {
-            display: inline-block;
+ .arrow-icon {
             width: 20px;
             height: 20px;
             position: relative;
-            animation: pulse 2s infinite;
+            padding: 10px;
+            margin: 10px;
         }
 
         .arrow-icon::before {
             content: "";
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, transparent 0%, transparent 50%, white 50%, white 100%);
+            width: 10px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
             transform: rotate(45deg);
+            animation: pulse 2s infinite;
             box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
         }
 
@@ -208,7 +210,7 @@ header{
 
             <div class="slider-frame">
                 <h3>¡SÍ! QUIERO Solar Portátil</h3>
-                <div class=""><i class="fa-solid fa-arrow-right arrow-icon"></i></div>
+                <div class="arrow-icon"></div>
                 <div class="slider-thumb">
                    <div class="oferton">
                          <h2  style="margin:0">50%</h2>

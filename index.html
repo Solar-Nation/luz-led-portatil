@@ -64,7 +64,7 @@
         <div class="producto">
         <img src="portatil.png" style="width: 90%; margin: 0 auto;">
         </div>
-       <div class="descripción">
+       <div class="descripción"> 
            <h1>Foco Solar Portátil para Exteriores, práctico y sencillo de usar.</h1>
            <p>Descubre el poder de la energía solar con nuestro Reflector LED portátil, el aliado perfecto para iluminar tus espacios exteriores. 
                Ya sea en una actividad al aire libre, en tu jardín o en una obra en construcción, esta lámpara de construcción recargable es tu solución brillante.</p>
@@ -77,16 +77,30 @@
 </body>
 </html>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const menuIcon = document.querySelector('.menu-icon');
-    const menuList = document.querySelector('.menu-list');
+ document.addEventListener('DOMContentLoaded', function() {
+            const menuIcon = document.querySelector('.menu-icon');
+            const menuList = document.querySelector('.menu-list');
 
-    menuIcon.addEventListener('click', function() {
-        if (menuList.style.display === 'none' || menuList.style.display === '') {
-            menuList.style.display = 'block';
-        } else {
-            menuList.style.display = 'none';
-        }
-    });
-});
+            function updateMenuDisplay() {
+                if (window.innerWidth <= 1000) {
+                    menuList.style.display = 'none';
+                } else {
+                    menuList.style.display = 'block';
+                }
+            }
+
+            menuIcon.addEventListener('click', function() {
+                if (menuList.style.display === 'none' || menuList.style.display === '') {
+                    menuList.style.display = 'block';
+                } else {
+                    menuList.style.display = 'none';
+                }
+            });
+
+            // Actualizar el estado del menú cuando la ventana cambie de tamaño
+            window.addEventListener('resize', updateMenuDisplay);
+
+            // Asegurarse de que el estado inicial se ajuste correctamente
+            updateMenuDisplay();
+        });
 </script>

@@ -262,6 +262,35 @@ header{
             display: flex;
             
         }
+
+        .notification {
+            position: fixed;
+            bottom: 5px;
+            left: -300px; /* Inicia fuera de la pantalla a la izquierda */
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            animation: slideIn 0.5s forwards, slideOut 0.5s 5s forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOut {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
       
     </style>
 </head>
@@ -363,6 +392,9 @@ header{
             <img src="solar3.jpg" style="width: 25%;">
             <img src="solar4.jpg" style="width: 25%;">
     </section>
+<div class="notification">
+        Ana de Madrid acaba de comprar.
+    </div>
     <footer>
         <p>Derechos de autor &copy; Año - Nombre de la Empresa</p>
     </footer>

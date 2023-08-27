@@ -150,6 +150,15 @@ header{
             left: 0.243136%;
         }
 
+      .slider-frame:hover {
+        background-image: linear-gradient(180deg, #ff6600, #ffff00);
+    }
+
+    /* Agrega estilos para el hover del slider-thumb */
+    .slider-thumb:hover {
+        background-color: #ff6600;
+    }
+
  .arrow-icon {
             width: 20px;
             height: 20px;
@@ -349,6 +358,13 @@ header{
             const thumbPosition = position * 100;
             thumb.style.left = `${thumbPosition}%`;
         }
+
+document.addEventListener('mouseup', () => {
+    if (isDragging) {
+        isDragging = false;
+        positionThumb(0); // Esto vuelve el slider-thumb a la posición inicial (izquierda 0)
+    }
+});
 
 // REDIRECCIONAR
 

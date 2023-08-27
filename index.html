@@ -263,7 +263,7 @@ header{
             
         }
 
-         .notification {
+          .notification {
             position: fixed;
             bottom: 5px;
             left: 0;
@@ -272,6 +272,21 @@ header{
             padding: 10px;
             border-radius: 5px;
             animation: slideIn 0.5s forwards, slideOut 0.5s 5s forwards;
+        }
+
+        .producto-notificacion {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .producto-notificacion img {
+            width: 50px;
+            border-radius: 10px;
+        }
+
+        .notificacion-text {
+            margin-left: 10px;
         }
 
         @keyframes slideIn {
@@ -290,12 +305,6 @@ header{
             100% {
                 transform: translateX(-100%);
             }
-        }
-
-        .producto-notificacion {
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
       
     </style>
@@ -400,11 +409,6 @@ header{
     </section>
 <div class="notification">
         <div class="notification">Juan Carlos de Toledo</div>
-        <div class="producto-notificacion">
-        <img src="portatil.png" style="width: 50px; border-radius: 10px;">
-        <div class="notificacion-text">
-            <p style="width: 50px; margen: 0; color: white;"> Foco Solar Portátil</p>
-        </div>
     </div>
     </div>
     <footer>
@@ -496,16 +500,38 @@ function updateSlider(clientX) {
 
 // NOTIFICACIONES
 
-  const names = ["Miriam de Zaragoza", "Julio de Barcelona", "Gonzalo de Sevilla", "David de Coruña"];
-        let currentIndex = 1;
+   const names = ["Miriam de Zaragoza", "Julio de Barcelona", "Gonzalo de Sevilla", "David de Coruña"];
+        let currentIndex = 0;
 
         function showNextNotification() {
             if (currentIndex >= names.length) {
                 currentIndex = 0;
             }
+
             const notification = document.createElement("div");
             notification.className = "notification";
-            notification.textContent = names[currentIndex];
+
+            const productoNotificacion = document.createElement("div");
+            productoNotificacion.className = "producto-notificacion";
+
+            const img = document.createElement("img");
+            img.src = "portatil.png";
+            img.style.width = "50px";
+            img.style.borderRadius = "10px";
+
+            const notificacionText = document.createElement("div");
+            notificacionText.className = "notificacion-text";
+
+            const p = document.createElement("p");
+            p.style.margin = "0";
+            p.style.color = "white";
+            p.textContent = "Foco Solar Portátil";
+
+            notificacionText.appendChild(p);
+            productoNotificacion.appendChild(img);
+            productoNotificacion.appendChild(notificacionText);
+            notification.appendChild(productoNotificacion);
+
             document.body.appendChild(notification);
 
             setTimeout(() => {

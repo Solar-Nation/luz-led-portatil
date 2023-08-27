@@ -263,7 +263,7 @@ header{
             
         }
 
-          .notification {
+         .notification {
             position: fixed;
             bottom: 5px;
             left: 0;
@@ -287,6 +287,12 @@ header{
 
         .notificacion-text {
             margin-left: 10px;
+        }
+
+        .nombre-ciudad {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 5px;
         }
 
         @keyframes slideIn {
@@ -408,11 +414,12 @@ header{
             <img src="solar4.jpg" style="width: 25%;">
     </section>
  <div class="notification">
-        <div class="nombre-ciudad">Miriam de Zaragoza</div>
+        <div class="nombre-ciudad">Juan Carlos de Toledo</div>
         <div class="producto-notificacion">
             <img src="portatil.png" style="width: 50px; border-radius: 10px;">
             <div class="notificacion-text">
-                <p style="margin: 0; color: white;"> Foco Solar Portátil</p>
+                <p style="margin: 0; color: white;">acaba de comprar</p>
+                <p style="margin: 0; color: white;">Foco Solar Portátil</p>
             </div>
         </div>
     </div>
@@ -537,12 +544,18 @@ function updateSlider(clientX) {
             const notificacionText = document.createElement("div");
             notificacionText.className = "notificacion-text";
 
-            const p = document.createElement("p");
-            p.style.margin = "0";
-            p.style.color = "white";
-            p.textContent = "Foco Solar Portátil";
+            const pCompra = document.createElement("p");
+            pCompra.style.margin = "0";
+            pCompra.style.color = "white";
+            pCompra.textContent = "acaba de comprar";
 
-            notificacionText.appendChild(p);
+            const pProducto = document.createElement("p");
+            pProducto.style.margin = "0";
+            pProducto.style.color = "white";
+            pProducto.textContent = "Foco Solar Portátil";
+
+            notificacionText.appendChild(pCompra);
+            notificacionText.appendChild(pProducto);
             productoNotificacion.appendChild(img);
             productoNotificacion.appendChild(notificacionText);
             notification.appendChild(nombreCiudad);

@@ -124,7 +124,7 @@ header{
             margin: 50px auto;
         }
 
-        .slider {
+        .slider-frame {
             position: relative;
             width: 100%;
             height: 10px;
@@ -170,10 +170,8 @@ header{
            <p>Descubre el poder de la energía solar con nuestro Reflector LED portátil, el aliado perfecto para iluminar tus espacios exteriores. 
                Ya sea en una actividad al aire libre, en tu jardín o en una obra en construcción, esta lámpara de construcción recargable es tu solución brillante.</p>
 
-            <div class="slider-container">
-                <div class="slider">
-                    <div class="slider-thumb"></div>
-                </div>
+            <div class="slider-frame">
+                <div class="slider-thumb"></div>
             </div>
 
        </div>
@@ -215,7 +213,7 @@ header{
 
 // BOTON DESLIZABLE
 
-  const slider = document.querySelector('.slider');
+  const slider = document.querySelector('.slider-frame');
         const thumb = document.querySelector('.slider-thumb');
         let isDragging = false;
 

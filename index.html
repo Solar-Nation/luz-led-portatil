@@ -116,6 +116,32 @@ header{
     .descripcion{
         width: 50%;
     }
+
+         .toggle-button {
+            display: inline-block;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .toggle-inner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .on .toggle-inner {
+            transform: translateX(100%);
+        }
+
+        .off .toggle-inner {
+            transform: translateX(0);
+        }
     </style>
 </head>
     
@@ -145,8 +171,13 @@ header{
            <h1>Foco Solar Portátil para Exteriores, práctico y sencillo de usar.</h1>
            <p>Descubre el poder de la energía solar con nuestro Reflector LED portátil, el aliado perfecto para iluminar tus espacios exteriores. 
                Ya sea en una actividad al aire libre, en tu jardín o en una obra en construcción, esta lámpara de construcción recargable es tu solución brillante.</p>
+
+           <button class="toggle-button">
+                <div class="toggle-inner"></div>
+            </button>
        </div>
     </div>
+
     
     <footer>
         <p>Derechos de autor &copy; Año - Nombre de la Empresa</p>
@@ -179,5 +210,14 @@ header{
 
             // Asegurarse de que el estado inicial se ajuste correctamente
             updateMenuDisplay();
+        });
+
+// BOTON DESLIZABLE
+
+  const toggleButton = document.querySelector('.toggle-button');
+
+        toggleButton.addEventListener('click', function() {
+            toggleButton.classList.toggle('on');
+            toggleButton.classList.toggle('off');
         });
 </script>

@@ -399,7 +399,7 @@ header{
             <img src="solar4.jpg" style="width: 25%;">
     </section>
 <div class="notification">
-       <p id="purchase"></p>
+        <div class="notification">Juan Carlos de Toledo</div>
         <div class="producto-notificacion">
         <img src="portatil.png" style="width: 50px; border-radius: 10px;">
         <div class="notificacion-text">
@@ -496,24 +496,24 @@ function updateSlider(clientX) {
 
 // NOTIFICACIONES
 
-  const names = ["Juan Carlos de Toledo", "Miriam de Zaragoza", "Julio de Barcelona", "Gonzalo de Sevilla", "David de Coruña"];
-        let currentIndex = 0;
-        const purchaseParagraph = document.getElementById("purchase");
+  const names = ["Miriam de Zaragoza", "Julio de Barcelona", "Gonzalo de Sevilla", "David de Coruña"];
+        let currentIndex = 1;
 
         function showNextNotification() {
             if (currentIndex >= names.length) {
                 currentIndex = 0;
             }
-            purchaseParagraph.textContent = names[currentIndex];
-            const notification = document.querySelector(".notification");
-            notification.style.animation = "slideIn 0.5s forwards, slideOut 0.5s 5s forwards";
+            const notification = document.createElement("div");
+            notification.className = "notification";
+            notification.textContent = names[currentIndex];
+            document.body.appendChild(notification);
 
             setTimeout(() => {
+                document.body.removeChild(notification);
                 currentIndex++;
                 showNextNotification();
-            }, 20000); // 20 segundos
+            }, 30000); // 30 segundos
         }
 
         showNextNotification();
-
 </script>

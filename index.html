@@ -119,30 +119,26 @@ header{
         width: 50%;
     }
 
-         .toggle-button {
-            display: inline-block;
-            background-color: #e0e0e0;
-            padding: 10px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
+                .slider-container {
+            width: 300px;
+            margin: 50px auto;
         }
 
-        .toggle-inner {
-            display: inline-block;
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 5px;
+        }
+
+        .slider-thumb {
+            position: absolute;
             width: 20px;
             height: 20px;
-            background-color: #ffffff;
+            background-color: #3498db;
             border-radius: 50%;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .on .toggle-inner {
-            transform: translateX(100%);
-        }
-
-        .off .toggle-inner {
-            transform: translateX(0);
+            cursor: pointer;
         }
     </style>
 </head>
